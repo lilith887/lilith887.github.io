@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lilith的个人空间</title>
   <style>
-    /* 统一博客主题风格 */
+    /* 修正为博客同款浅孔雀蓝 */
     :root {
-      --primary: #006a71;  /* 孔雀蓝主色 */
-      --secondary: #a3d2ca; /* 辅助色 */
-      --text: #333;        /* 正文色 */
-      --light: #f8f9fa;    /* 背景色 */
+      --primary: #159957;  /* 博客同款浅孔雀蓝 */
+      --secondary: #a3d2ca;
+      --text: #333;
+      --light: #f8f9fa;
     }
     
     * {
@@ -29,9 +29,9 @@
       padding: 20px;
     }
     
-    /* 头部 - 与博客页相同的孔雀蓝风格 */
+    /* 头部 - 修正为浅孔雀蓝 */
     header {
-      background: linear-gradient(135deg, var(--primary) 0%, #004d54 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, #0d7a4d 100%);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
@@ -151,7 +151,7 @@
     }
     
     .card a:hover {
-      color: #004d54;
+      color: #0d7a4d;
     }
     
     .card a::after {
@@ -180,7 +180,7 @@
   </style>
 </head>
 <body>
-  <!-- 头部区域 - 与博客同款孔雀蓝 -->
+  <!-- 头部区域 - 浅孔雀蓝 -->
   <header>
     <h1>Lilith的技术笔记</h1>
     <p>探索代码与设计的乐趣</p >
@@ -189,11 +189,12 @@
   <!-- 个人简介区域 -->
   <section class="profile">
     <div class="avatar-container">
-      <!-- 已集成您的头像链接 -->
+      <!-- 修复版头像链接（强制刷新缓存） -->
       < img 
-        src="https://github.com/lilith887/lilith887.github.io/blob/main/avatar.jpg?raw=true" 
+        src="https://github.com/lilith887/lilith887.github.io/blob/main/avatar.jpg?raw=true&t=20250711" 
         alt="Lilith的头像"
         class="avatar"
+        onerror="this.src='https://via.placeholder.com/150/159957/FFFFFF?text=头像加载中'"
       >
     </div>
     
