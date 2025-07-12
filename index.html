@@ -1,13 +1,51 @@
-## hello itst
-This is lilith from guangzhou,I am try to establish a website.
 <!DOCTYPE html>
 <html>
 <head>
-  <title>我的网站</title>
+  <title>Lilith的个人网站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root { --primary: #006a71; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
+    header { background: var(--primary); color: white; padding: 40px 20px; text-align: center; }
+    .intro { text-align: center; margin: 40px 0; }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+    .cards { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+    .card { border: 1px solid #eee; border-radius: 8px; padding: 20px; width: 250px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+    .card:hover { transform: translateY(-5px); transition: transform 0.3s; }
+    footer { text-align: center; margin-top: 50px; color: #777; }
+  </style>
 </head>
 <body>
-  <h1>欢迎访问！</h1>
-  <p>这是我自己搭建的网站✨</p >
-  <!-- 继续添加内容 -->
+  <header>
+    <h1>Lilith的技术笔记</h1>
+    <p>探索代码与设计的乐趣</p >
+  </header>
+
+  <div class="intro">
+    < img src="替换为你的头像URL" class="avatar">
+    <p>你好！这里是Lilith的创作空间，专注分享前端开发与GitHub技巧。</p >
+    <p>
+      浏览博客 | 
+      查看项目
+    </p >
+  </div>
+
+  <h2 style="text-align: center; color: var(--primary);">最新文章</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>GitHub排版美化指南</h3>
+      <p>如何让Markdown既专业又易读...</p >
+      阅读全文 »
+    </div>
+    <div class="card">
+      <h3>Jekyll主题定制心得</h3>
+      <p>从零修改主题配色与布局...</p >
+      阅读全文 »
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Lilith | 用代码书写生活</p >
+  </footer>
 </body>
 </html>
