@@ -1,51 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <title>Lilith的个人网站</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilith的个人空间</title>
   <style>
-    :root { --primary: #006a71; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
-    header { background: var(--primary); color: white; padding: 40px 20px; text-align: center; }
-    .intro { text-align: center; margin: 40px 0; }
-    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
-    .cards { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
-    .card { border: 1px solid #eee; border-radius: 8px; padding: 20px; width: 250px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
-    .card:hover { transform: translateY(-5px); transition: transform 0.3s; }
-    footer { text-align: center; margin-top: 50px; color: #777; }
+    /* 统一博客主题风格 */
+    :root {
+      --primary: #006a71;  /* 孔雀蓝主色 */
+      --secondary: #a3d2ca; /* 辅助色 */
+      --text: #333;        /* 正文色 */
+      --light: #f8f9fa;    /* 背景色 */
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* 头部 - 与博客页相同的孔雀蓝风格 */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #004d54 100%);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* 个人简介区域 */
+    .profile {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 2rem;
+    }
+    
+    .avatar-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--secondary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .intro {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    
+    .nav-links a:hover {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    /* 内容卡片 */
+    .section-title {
+      text-align: center;
+      color: var(--primary);
+      margin: 2rem 0 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    
+    .card p {
+      margin-bottom: 1.2rem;
+      color: #555;
+    }
+    
+    .card a {
+      display: inline-block;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .card a:hover {
+      color: #004d54;
+    }
+    
+    .card a::after {
+      content: " →";
+    }
+    
+    /* 页脚 */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      color: #777;
+      border-top: 1px solid #eee;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- 头部区域 - 与博客同款孔雀蓝 -->
   <header>
     <h1>Lilith的技术笔记</h1>
     <p>探索代码与设计的乐趣</p >
   </header>
 
-  <div class="intro">
-    < img src="https://raw.githubusercontent.com/lilith887/lilith887.github.io/main/avatar.jpg" width="150" style="border-radius: 50%; border: 2px solid #006a71; margin: 20px auto; display: block" alt="Lilith的头像">
-    <p>你好！这里是Lilith的创作空间，专注分享前端开发与GitHub技巧。</p >
-    <p>
-      浏览博客 | 
-      查看项目
-    </p >
-  </div>
+  <!-- 个人简介区域 -->
+  <section class="profile">
+    <div class="avatar-container">
+      <!-- 已集成您的头像链接 -->
+      < img 
+        src="https://github.com/lilith887/lilith887.github.io/blob/main/avatar.jpg?raw=true" 
+        alt="Lilith的头像"
+        class="avatar"
+      >
+    </div>
+    
+    <div class="intro">
+      <p>你好！我是Lilith，一名热爱技术的开发者。</p >
+      <p>这里记录我的学习笔记、项目经验和生活思考。</p >
+    </div>
+    
+    <div class="nav-links">
+      博客
+      项目
+      笔记
+      关于我
+    </div>
+  </section>
 
-  <h2 style="text-align: center; color: var(--primary);">最新文章</h2>
+  <!-- 最新文章 -->
+  <h2 class="section-title">最新文章</h2>
   <div class="cards">
     <div class="card">
-      <h3>GitHub排版美化指南</h3>
-      <p>如何让Markdown既专业又易读...</p >
-      阅读全文 »
+      <div class="card-content">
+        <h3>GitHub Pages搭建指南</h3>
+        <p>从零开始搭建个人网站的全过程记录，包含常见问题解决方案和实用技巧。</p >
+        阅读全文
+      </div>
     </div>
+    
     <div class="card">
-      <h3>Jekyll主题定制心得</h3>
-      <p>从零修改主题配色与布局...</p >
-      阅读全文 »
+      <div class="card-content">
+        <h3>Markdown高级技巧</h3>
+        <p>超越基础语法，探索流程图、数学公式、自定义样式等高级用法。</p >
+        阅读全文
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-content">
+        <h3>Jekyll主题定制</h3>
+        <p>如何修改官方主题的配色、布局，打造独一无二的博客风格。</p >
+        阅读全文
+      </div>
     </div>
   </div>
 
+  <!-- 项目展示 -->
+  <h2 class="section-title">精选项目</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <h3>智能笔记系统</h3>
+        <p>基于Markdown的笔记管理工具，支持标签分类和全文搜索。</p >
+        查看详情
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-content">
+        <h3>代码片段管理器</h3>
+        <p>开发者必备工具，高效管理常用代码片段，支持多语言高亮。</p >
+        查看详情
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
   <footer>
     <p>© 2025 Lilith | 用代码书写生活</p >
+    <p>联系我: lilith887@example.com</p >
   </footer>
 </body>
 </html>
